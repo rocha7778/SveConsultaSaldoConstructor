@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Bancololombia - Gerencia Desarrollo Servicios de Integracion - 01/11/2018 - Generado por: luis  -->
+<wsdl:definitions name="ConsultaCreditoConstructor"
+	targetNamespace="http://grupobancolombia.com/intf/Producto/CreditoHipotecario/ConsultaCreditoConstructor/V1.0" xmlns:tns="http://grupobancolombia.com/intf/Producto/CreditoHipotecario/ConsultaCreditoConstructor/V1.0"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mf="http://grupobancolombia.com/ents/SOI/MessageFormat/V2.1">
+	
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://grupobancolombia.com/intf/Producto/CreditoHipotecario/ConsultaCreditoConstructor/V1.0">
+			<xsd:include schemaLocation="ConsultaCreditoConstructor_V1.0.xsd" />
+
+			<xsd:import schemaLocation="soi-core-MessageFormat-V2.1.xsd"
+				namespace="http://grupobancolombia.com/ents/SOI/MessageFormat/V2.1" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="consultarSaldoProoyectosConstructorRequestMsg">
+		<wsdl:part element="tns:consultarSaldoProoyectosConstructor" name="parameters" />
+		<wsdl:part element="mf:requestHeader" name="requestHeader" />
+	</wsdl:message>
+
+	<wsdl:message name="consultarSaldoProoyectosConstructorResponseMsg">
+		<wsdl:part element="tns:consultarSaldoProoyectosConstructorResponse" name="result" />
+		<wsdl:part element="mf:responseHeader" name="responseHeader" />
+	</wsdl:message>
+	
+	<wsdl:message name="systemExceptionMsg">
+		<wsdl:part element="tns:systemException" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="businessExceptionMsg">
+		<wsdl:part element="tns:businessException" name="parameters" />
+	</wsdl:message>
+	
+
+
+
+	<wsdl:portType name="ConsultaCreditoConstructor">
+
+
+		<!--por cada operación)-->
+		<wsdl:operation name="consultarSaldoProoyectosConstructor">
+		
+			<wsdl:input name="consultarSaldoProoyectosConstructorRequest"
+				message="tns:consultarSaldoProoyectosConstructorRequestMsg" />
+		
+			<wsdl:output name="consultarSaldoProoyectosConstructorResponse"
+				message="tns:consultarSaldoProoyectosConstructorResponseMsg" />
+			
+			<wsdl:fault name="systemException" message="tns:systemExceptionMsg" />
+			<wsdl:fault name="businessException" message="tns:businessExceptionMsg" />
+				
+		</wsdl:operation>
+		
+		<!--por cada operación)-->
+
+	</wsdl:portType>
+
+
+</wsdl:definitions>

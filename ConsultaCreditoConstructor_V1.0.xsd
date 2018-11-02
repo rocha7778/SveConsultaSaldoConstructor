@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Bancololombia - Gerencia Desarrollo Servicios de Integracion - 01/11/2018 - Generado por: luis  -->
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="unqualified" targetNamespace="http://grupobancolombia.com/intf/Producto/CreditoHipotecario/ConsultaCreditoConstructor/V1.0"
+	xmlns:tns="http://grupobancolombia.com/intf/Producto/CreditoHipotecario/ConsultaCreditoConstructor/V1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://grupobancolombia.com/ents/common/GenericException/V2.0">
+
+	<!-- Inicio Importaciones -->
+	<xs:import schemaLocation="common-core-GenericException-V2.xsd"
+		namespace="http://grupobancolombia.com/ents/common/GenericException/V2.0">
+	</xs:import>
+	<!-- Fin Importaciones -->
+	
+	<!--Inicio Operaciones)-->
+	<xs:element name="consultarSaldoProoyectosConstructor" type="tns:ConsultarSaldoProoyectosConstructor">
+	</xs:element>
+
+	<xs:element name="consultarSaldoProoyectosConstructorResponse" type="tns:ConsultarSaldoProoyectosConstructorResponse">
+	</xs:element>
+	
+	<!--Fin Operaciones)-->
+
+	<!-- Inicio Excepciones -->
+	<xs:element name="systemException" type="tns:SystemException">
+	</xs:element>
+	
+	<xs:element name="businessException" type="tns:BusinessException">
+	</xs:element>
+	
+	<!-- Fin Excepciones -->
+	
+	<!-- Inicio tipos complejos -->
+	
+	<!--Inicio Tipos Complejos Operaciones-->
+	<xs:complexType name="ConsultarSaldoProoyectosConstructor">
+		<xs:sequence>
+		<xsd:element name="identificacionCliente" type="tns:DatosIdentificacion" minOccurs="1" maxOccurs="1"></xsd:element>			
+		</xs:sequence>
+	</xs:complexType>
+	
+
+	<xs:complexType name="ConsultarSaldoProoyectosConstructorResponse">
+		<xs:sequence>
+		<xsd:element name="identificacionCliente" type="tns:DatosIdentificacion" minOccurs="1" maxOccurs="1"></xsd:element>		
+
+		</xs:sequence>
+	</xs:complexType>	
+	
+	
+		<xsd:complexType name="DatosIdentificacion">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="tipoIdentificacion">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="1" name="identificacion">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	
+	
+
+
+
+
+
+	
+	<!--Fin Tipos Complejos Operaciones-->
+
+
+	<!--Inicio Tipos Complejos Excepciones-->
+	<xs:complexType name="SystemException">
+		<xs:sequence>
+			<xs:element name="genericException" type="bons0:GenericException">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+		<xs:complexType name="BusinessException">
+		<xs:sequence>
+			<xs:element name="genericException" type="bons0:GenericException">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--Fin Tipos Complejos Excepciones-->
+	
+	<!-- Inicio tipos complejos -->
+
+</xs:schema>
