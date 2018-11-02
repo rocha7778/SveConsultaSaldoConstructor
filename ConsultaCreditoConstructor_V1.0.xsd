@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Bancololombia - Gerencia Desarrollo Servicios de Integracion - 01/11/2018 - Generado por: luis  -->
+<!--Bancololombia - Gerencia Desarrollo Servicios de Integracion - 01/11/2018 
+	- Generado por: luis -->
 <xs:schema attributeFormDefault="unqualified"
-	elementFormDefault="unqualified" targetNamespace="http://grupobancolombia.com/intf/Producto/CreditoHipotecario/ConsultaCreditoConstructor/V1.0"
-	xmlns:tns="http://grupobancolombia.com/intf/Producto/CreditoHipotecario/ConsultaCreditoConstructor/V1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="unqualified"
+	targetNamespace="http://grupobancolombia.com/intf/Producto/CreditoHipotecario/ConsultaCreditoConstructor/V1.0"
+	xmlns:tns="http://grupobancolombia.com/intf/Producto/CreditoHipotecario/ConsultaCreditoConstructor/V1.0"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:bons0="http://grupobancolombia.com/ents/common/GenericException/V2.0">
 
 	<!-- Inicio Importaciones -->
@@ -10,92 +13,190 @@
 		namespace="http://grupobancolombia.com/ents/common/GenericException/V2.0">
 	</xs:import>
 	<!-- Fin Importaciones -->
-	
-	<!--Inicio Operaciones)-->
+
+	<!--Inicio Operaciones) -->
 	<xs:element name="consultarSaldoProoyectosConstructor" type="tns:ConsultarSaldoProoyectosConstructor">
 	</xs:element>
 
-	<xs:element name="consultarSaldoProoyectosConstructorResponse" type="tns:ConsultarSaldoProoyectosConstructorResponse">
+	<xs:element name="consultarSaldoProoyectosConstructorResponse"
+		type="tns:ConsultarSaldoProoyectosConstructorResponse">
 	</xs:element>
-	
-	<!--Fin Operaciones)-->
+
+	<!--Fin Operaciones) -->
 
 	<!-- Inicio Excepciones -->
 	<xs:element name="systemException" type="tns:SystemException">
 	</xs:element>
-	
+
 	<xs:element name="businessException" type="tns:BusinessException">
 	</xs:element>
-	
+
 	<!-- Fin Excepciones -->
-	
+
 	<!-- Inicio tipos complejos -->
-	
-	<!--Inicio Tipos Complejos Operaciones-->
+
+	<!--Inicio Tipos Complejos Operaciones -->
 	<xs:complexType name="ConsultarSaldoProoyectosConstructor">
 		<xs:sequence>
-		<xsd:element name="identificacionCliente" type="tns:DatosIdentificacion" minOccurs="1" maxOccurs="1"></xsd:element>			
+			<xs:element name="identificacionCliente" type="tns:DatosIdentificacion"
+				minOccurs="1" maxOccurs="1"></xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	
+
 
 	<xs:complexType name="ConsultarSaldoProoyectosConstructorResponse">
 		<xs:sequence>
-		<xsd:element name="identificacionCliente" type="tns:DatosIdentificacion" minOccurs="1" maxOccurs="1"></xsd:element>		
+			<xs:element name="encabezadoPaginacionResponse" type="tns:EncabezadoPaginacionResponse"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="identificacionCliente" type="tns:DatosIdentificacion"
+				minOccurs="1" maxOccurs="1"></xs:element>
+			<xs:element name="detalleCuentaConstructor" type="tns:DetalleCuentaConstructor"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="DatosIdentificacion">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="tipoIdentificacion">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1" />
+						<xs:maxLength value="50" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="1" name="identificacion">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1" />
+						<xs:maxLength value="50" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="nombreEmpresa" minOccurs="1" maxOccurs="1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:whiteSpace value="collapse" />
+				<xs:minLength value="1" />
+				<xs:maxLength value="50" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+
+	<xs:complexType name="EncabezadoPaginacionResponse">
+		<xs:sequence>
+			<xs:element name="hayMasDatos">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Y" />
+						<xs:enumeration value="N" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DetalleCuentaConstructor">
+		<xs:sequence>
+
+			<xs:element name="numeroDeProyecto" type="tns:NumeroDeCuenta"
+				minOccurs="1" maxOccurs="1">
+			</xs:element>
+
+			<xs:element name="nombreDelProyecto" minOccurs="1"
+				maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse" />
+						<xs:minLength value="1" />
+						<xs:maxLength value="50" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+
+			<xs:element name="nombreDelTitular" minOccurs="1"
+				maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse" />
+						<xs:minLength value="1" />
+						<xs:maxLength value="50" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element name="valorInteresesTrimestrales" type="tns:Moneda"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="valorSaldoTotalAPagar" type="tns:Moneda"
+				minOccurs="0" maxOccurs="1" />
+
+
 
 		</xs:sequence>
-	</xs:complexType>	
-	
-	
-		<xsd:complexType name="DatosIdentificacion">
-		<xsd:sequence>
-			<xsd:element maxOccurs="1" minOccurs="1" name="tipoIdentificacion">
-				<xsd:simpleType>
-					<xsd:restriction base="xsd:string">
-						<xsd:minLength value="1"/>
-						<xsd:maxLength value="50"/>
-					</xsd:restriction>
-				</xsd:simpleType>
-			</xsd:element>
-			<xsd:element maxOccurs="1" minOccurs="1" name="identificacion">
-				<xsd:simpleType>
-					<xsd:restriction base="xsd:string">
-						<xsd:minLength value="1"/>
-						<xsd:maxLength value="50"/>
-					</xsd:restriction>
-				</xsd:simpleType>
-			</xsd:element>
-		</xsd:sequence>
-	</xsd:complexType>
-	
-	
-	
+	</xs:complexType>
+
+
+	<xs:simpleType name="NumeroDeCuenta">
+		<xs:restriction base="xs:string">
+			<xs:whiteSpace value="collapse" />
+			<xs:maxLength value="16" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="Moneda">
+		<xs:sequence>
+			<xs:element name="codigoMonedaISO4217Alfabetico">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="3"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="monto">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal ">
+						<xs:fractionDigits value="2" />
+						<xs:totalDigits value="18" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
 
 
 
 
-	
-	<!--Fin Tipos Complejos Operaciones-->
 
 
-	<!--Inicio Tipos Complejos Excepciones-->
+
+
+	<!--Fin Tipos Complejos Operaciones -->
+
+
+	<!--Inicio Tipos Complejos Excepciones -->
 	<xs:complexType name="SystemException">
 		<xs:sequence>
 			<xs:element name="genericException" type="bons0:GenericException">
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	
-		<xs:complexType name="BusinessException">
+
+	<xs:complexType name="BusinessException">
 		<xs:sequence>
 			<xs:element name="genericException" type="bons0:GenericException">
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	
-	<!--Fin Tipos Complejos Excepciones-->
-	
+
+	<!--Fin Tipos Complejos Excepciones -->
+
 	<!-- Inicio tipos complejos -->
 
 </xs:schema>
